@@ -18,10 +18,25 @@ List.prototype.push = function(item) {
  * @returns {*}
  */
 List.prototype.pop = function() {
-  let returnValue = this.data[this.length];
-  delete this.data[this.length];
+  let returnValue = this.data[this.length-1];
+  delete this.data[this.length-1];
   this.length--;
   return returnValue;
 };
+
+List.prototype.shift = function() {
+  let outputValue = this.data[0];
+  delete this.data[0];
+  this.length--;
+  // console.log(outputValue);
+  return outputValue;
+};
+
+List.prototype.unshift = function(item) {
+  this.data[this.length] = item;
+  this.length++;
+};
+
+
 
 module.exports = List;
